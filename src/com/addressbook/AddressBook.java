@@ -1,10 +1,9 @@
 package com.addressbook;
 import java.util.Scanner;
 
-public class AddressBook
-{
+public class AddressBook {
     //variables
-    private  String FirstName;
+    private String FirstName;
     private String LastName;
     private String State;
     private String City;
@@ -19,6 +18,7 @@ public class AddressBook
     public String getFirstName() {
         return FirstName;
     }
+
     public void setFirstName(String firstName) {
         FirstName = firstName;
     }
@@ -26,16 +26,16 @@ public class AddressBook
     public String getLastName() {
         return LastName;
     }
+
     public void setLastName(String lastName) {
         LastName = lastName;
     }
 
-    public String getState()
-    {
+    public String getState() {
         return State;
     }
-    public void setState(String state)
-    {
+
+    public void setState(String state) {
         this.State = state;
     }
 
@@ -43,37 +43,44 @@ public class AddressBook
     public String getAddress() {
         return Address;
     }
+
     public void setAddress(String address) {
         this.Address = address;
     }
+
     public Long getZipCode() {
         return ZipCode;
     }
+
     public void setZipCode(Long zipCode) {
         ZipCode = zipCode;
     }
+
     public Long getPhoneNO() {
         return PhoneNO;
     }
+
     public void setPhoneNO(Long phoneNO) {
         PhoneNO = phoneNO;
     }
+
     public String getEmail() {
         return Email;
     }
+
     public void setEmail(String email) {
-        Email=email;
+        Email = email;
     }
 
     public String getCity() {
         return City;
     }
+
     public void setCity(String city) {
         City = city;
     }
 
-    public void display()
-    {
+    public void display() {
         System.out.println("Enter a first name: ");
         setFirstName(userinput.nextLine());
 
@@ -85,7 +92,6 @@ public class AddressBook
 
         System.out.println("Enter a city: ");
         setCity(userinput.next());
-
 
 
         System.out.println("Enter a address: ");
@@ -102,7 +108,6 @@ public class AddressBook
         setEmail(userinput.next());
 
 
-
         System.out.println("name:\t" + this.getFirstName());
         System.out.println("last name:\t" + this.getLastName());
         System.out.println("state:\t" + this.getState());
@@ -115,12 +120,20 @@ public class AddressBook
 
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
 
-        AddressBook user1 = new  AddressBook();//usecase 1 displainf contact book for user
+        AddressBook user1 = new AddressBook();
+        System.out.println("details of user 1 is");
         user1.display();
+
+        // uc_2  added 2 more  contats in AddressBook
+        AddressBook user2 = new AddressBook();
+        System.out.println("details of user 2 is");
+        user2.display();
+
+
+        AddressBook user3 = new AddressBook();
+        System.out.println("details of user 3 is");
+        user3.display();
     }
-
 }
-
