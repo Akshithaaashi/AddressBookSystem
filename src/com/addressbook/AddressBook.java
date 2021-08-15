@@ -1,139 +1,130 @@
 package com.addressbook;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
-    //variables
-    private String FirstName;
-    private String LastName;
-    private String State;
-    private String City;
-    private String Address;
-    private long ZipCode;
-    private long PhoneNO;
-    private String Email;
-    //getters add setters  for  each variable
 
-    Scanner userinput = new Scanner(System.in);
+    Scanner userInputs = new Scanner(System.in);
+
+    String email;
+    String fName, lName, address, city, state;
+    Long zipCode, phoneNum;
+
+    public void setContactsDetails() {
+        System.out.println("Enter your First name: ");
+        this.fName = userInputs.nextLine();
+        System.out.println("Enter your Last name: ");
+        this.lName = userInputs.nextLine();
+        System.out.println("Enter your Address: ");
+        this.address = userInputs.nextLine();
+        System.out.println("Enter your City name: ");
+        this.city = userInputs.nextLine();
+        System.out.println("Enter your State name: ");
+        this.state = userInputs.nextLine();
+        System.out.println("Enter your Pin Code: ");
+        this.zipCode = userInputs.nextLong();
+        System.out.println("Enter your Phone Number: ");
+        this.phoneNum = userInputs.nextLong();
+        System.out.println("Enter your Email ID: ");
+        this.email = userInputs.nextLine();
+    }
+
+    // to read data from contacts
+    public String showContactsDetails() {
+        return ("------------------------\nFirst Name: " + fName + "\nLast Name: " + lName + "\nAddress: " + address
+                + "\nCity: " + city + "\nState: " + state + "\nPin Code: " + zipCode + "\nPhone Number: " + phoneNum
+                + "\nEmail ID: " + email + "\n-------------------------");
+    }
+
+    // get complete details of person
 
     public String getFirstName() {
-        return FirstName;
-    }
-
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
-
-    public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(String lastName) {
-        LastName = lastName;
-    }
-
-    public String getState() {
-        return State;
-    }
-
-    public void setState(String state) {
-        this.State = state;
-    }
-
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        this.Address = address;
-    }
-
-    public Long getZipCode() {
-        return ZipCode;
-    }
-
-    public void setZipCode(Long zipCode) {
-        ZipCode = zipCode;
-    }
-
-    public Long getPhoneNO() {
-        return PhoneNO;
-    }
-
-    public void setPhoneNO(Long phoneNO) {
-        PhoneNO = phoneNO;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getCity() {
-        return City;
-    }
-
-    public void setCity(String city) {
-        City = city;
-    }
-
-    public void display() {
-        System.out.println("Enter a first name: ");
-        setFirstName(userinput.nextLine());
-
-        System.out.println("Enter a last name: ");
-        setLastName(userinput.nextLine());
-
-        System.out.println("Enter a state: ");
-        setState(userinput.next());
-
-        System.out.println("Enter a city: ");
-        setCity(userinput.next());
-
-
-        System.out.println("Enter a address: ");
-        setAddress(userinput.next());
-
-        System.out.println("Enter a zipcode: ");
-        setZipCode(userinput.nextLong());
-
-
-        System.out.println("Enter a phoneno: ");
-        setPhoneNO(userinput.nextLong());
-
-        System.out.println("Enter a email: ");
-        setEmail(userinput.next());
-
-
-        System.out.println("name:\t" + this.getFirstName());
-        System.out.println("last name:\t" + this.getLastName());
-        System.out.println("state:\t" + this.getState());
-        System.out.println("zipcode:\t" + this.getZipCode());
-        System.out.println("city:\t" + this.getCity());
-        System.out.println("phone_no:\t" + this.getPhoneNO());
-        System.out.println("email:\t" + this.getEmail());
-        System.out.println("email:\t" + this.getEmail());
-
-
+        return fName;
     }
 
     public static void main(String[] args) {
 
-        AddressBook user1 = new AddressBook();
-        System.out.println("details of user 1 is");
-        user1.display();
+        System.out.println("Welcome to Address Book");
 
-        // uc_2  added 2 more  contats in AddressBook
-        AddressBook user2 = new AddressBook();
-        System.out.println("details of user 2 is");
-        user2.display();
+        List<AddressBook> persons = new ArrayList<>();
 
+        Scanner uc = new Scanner(System.in);
+        System.out.println("If you want to add address enter '0' ");
+        int userChoice = uc.nextInt();
 
-        AddressBook user3 = new AddressBook();
-        System.out.println("details of user 3 is");
-        user3.display();
+        if (userChoice == 0) {
+            System.out.println("Adding a new Address");
+
+            Scanner n = new Scanner(System.in);
+            System.out.println("How many contacts do you want to add to address book: ");
+            int noOfPersons = n.nextInt();
+
+            for (int i = 0; i < noOfPersons; i++) {
+                AddressBook contact = new AddressBook();
+                contact.setContactsDetails();
+                persons.add(contact);
+                System.out.println(contact.showContactsDetails());
+            }
+
+            System.out.println(persons);
+
+            Scanner new1 = new Scanner(System.in);
+            System.out.println("Do you want you edit the contacts /nIf 'YES' Enter : '0' /nIf 'NO' Enter : '1'--->: ");
+            int userChoice2 = new1.nextInt();
+
+            if (userChoice2 == 0) {
+
+                System.out.println("Editing a contact");
+
+                System.out.println(persons);
+                System.out.println("Which contact do you want to edit from address book: ");
+                Scanner input = new Scanner(System.in);
+                String editContact = input.next();
+
+                for (AddressBook i : persons) {
+
+                    if (i.getFirstName().equals(editContact)) {
+
+                        System.out.println("Change the First Name: ");
+                        String editfName = input.next();
+                        i.fName = editfName;
+
+                        System.out.println("Change the Last Name: ");
+                        String editlName = input.next();
+                        i.lName = editlName;
+
+                        System.out.println("Change the Address: ");
+                        String editAddress = input.next();
+                        i.address = editAddress;
+
+                        System.out.println("Change the City: ");
+                        String editCity = input.next();
+                        i.city = editCity;
+
+                        System.out.println("Change the State: ");
+                        String editState = input.next();
+                        i.state = editState;
+
+                        System.out.println("Change the Pin Code: ");
+                        Long editZipCode = input.nextLong();
+                        i.zipCode = editZipCode;
+
+                        System.out.println("Change the Phone Number: ");
+                        Long editPhoneNum = input.nextLong();
+                        i.phoneNum = editPhoneNum;
+
+                        System.out.println("Change the Email ID: ");
+                        String editEmail = input.next();
+                        i.email = editEmail;
+                    }
+                    System.out.println(persons);
+
+                }
+            } else {
+                System.out.println("Invalid Option");
+            }
+        }
     }
+
 }
