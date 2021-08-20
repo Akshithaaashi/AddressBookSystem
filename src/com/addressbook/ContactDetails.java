@@ -1,10 +1,10 @@
 package com.addressbook;
 
-public class ContactItems {
+public class ContactDetails {
     private String firstName, lastName, address, city, state, email, zip, phoneNumber;
 
-    public ContactItems(String firstName, String lastName, String address, String city, String state,
-                        String email, String phoneNumber, String zip) {
+    public ContactDetails(String firstName, String lastName, String address, String city, String state,
+                          String email, String phoneNumber, String zip) {
         setFirstName(firstName);
         setLastName(lastName);
         setAddress(address);
@@ -16,7 +16,7 @@ public class ContactItems {
 
     }
 
-    public ContactItems() {
+    public ContactDetails() {
 
     }
 
