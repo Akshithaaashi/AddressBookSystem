@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class AddressBook {
+
     public static Scanner sc = new Scanner(System.in);
     public ArrayList<ContactOfPerson> contactList;
     public HashMap<String, ArrayList<ContactOfPerson>> personByState;
@@ -114,7 +115,6 @@ public class AddressBook {
             System.out.println("First Name: " + contact.getFirstName());
             System.out.println("Last Name: " + contact.getLastName());
         }
-
     }
 
     public void getPersonNameByCity(String cityName) {

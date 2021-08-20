@@ -14,7 +14,6 @@ public class ContactOfPerson {
         setEmail(email);
         setPhoneNumber(phoneNumber);
         setZip(zip);
-
     }
 
     public String getFirstName() {
