@@ -1,10 +1,11 @@
 package com.addressbook;
 
-public class ContactDetails {
+public class ContactOfPerson {
+
     private String firstName, lastName, address, city, state, email, zip, phoneNumber;
 
-    public ContactDetails(String firstName, String lastName, String address, String city, String state,
-                          String email, String phoneNumber, String zip) {
+    public ContactOfPerson(String firstName, String lastName, String address, String city, String state, String email,
+                           String phoneNumber, String zip) {
         setFirstName(firstName);
         setLastName(lastName);
         setAddress(address);
@@ -13,10 +14,6 @@ public class ContactDetails {
         setEmail(email);
         setPhoneNumber(phoneNumber);
         setZip(zip);
-
-    }
-
-    public ContactDetails() {
 
     }
 
@@ -84,8 +81,10 @@ public class ContactDetails {
         this.phoneNumber = phoneNumber;
     }
 
+    @Override
     public String toString() {
-        return "ContactPerson [firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phoneNumber + ", city=" + city
-                + ", state=" + state + ", zip=" + zip + ", email=" + email + "]";
+        return "ContactOfPerson [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
+                + city + ", state=" + state + ", email=" + email + ", zip=" + zip + ", phoneNumber=" + phoneNumber
+                + "]";
     }
 }
